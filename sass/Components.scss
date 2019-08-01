@@ -1,0 +1,666 @@
+
+
+/// Logo ///
+.header__logo
+{
+    height: 3.75rem;
+    padding-left: 1rem;
+
+    @media only screen and (max-width:37.5em)
+    {
+        height: 1.5rem;
+        padding-left: 0;
+    }
+
+}
+
+
+/// SEARCH /// 
+
+.search
+{
+
+    flex: 0 0 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media only screen and (max-width:37.5em)
+    {
+        flex: 1 0 40%;
+    }
+    &__input
+    {
+        width: 90%;
+        border: none;
+        padding: 0.5rem 2rem;
+        border-radius: 10rem;
+        font-size: inherit;
+        font-family: inherit;
+        background-color: $Greylight3;
+        transition:all 0.3s ease-in-out;
+        margin-right: -3rem;
+
+        &:focus
+        {
+            background-color: $GreyLight2;
+            width: 100%;
+            outline: none;
+        }
+
+        &::-webkit-input-placeholder
+        {
+            color: $Greydark2;
+            font-weight: 100;
+            font-size: 1.05rem;
+            text-align: left;
+
+            @media only screen and (max-width:37.5em)
+            {
+                font-size: 0.7rem;
+                width: 100%;
+            }
+        }
+    }
+
+    &__input:focus + &__Button
+    {
+     background-color: $GreyLight2;
+    }
+
+    &__Button
+    {
+        border: none;
+        background-color: $Greylight3;
+        font-size: inherit;
+        font-family: inherit;
+        transition: all 0.3s ease-in-out;
+
+        &:focus
+        {
+            outline: none;
+        }
+        @media only screen and (max-width:37.5em)
+        {
+            width: 2rem;
+            height: 1.5rem;
+        }
+
+        &:active
+        {
+            transform: translateY(2px);
+        }
+    }
+
+    &__icon
+    {
+        height: 1.75rem;
+        width:1.75rem;
+        fill:$Greydark2;
+    }
+}
+
+
+.user-nav
+{
+    align-self: stretch;
+    display:flex;
+    align-items: center;
+
+    & > * // all direct childs of user navs
+    {
+        padding: 0 2rem;
+        transition: all 0.2s ease-in-out;
+        align-items: center;
+        cursor: pointer;
+
+        @media only screen and (max-width:37.5em)
+        {
+           padding: 0 0.5rem;
+        }
+    }
+    &__icon-box
+    {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+    }
+    &__icon
+    {
+        width: 1.75rem;
+        height: 1.75rem;
+        fill: $Greydark2;
+        transition: all 0.2s ease-in;
+
+        &:hover , &:active
+        {
+            fill: $Greydark3;
+        }
+    }
+    &__notification
+    {
+        background-color: $MediumPink;
+        border-radius: 50%;
+        height: 1.2rem;
+        width: 1.2rem;
+        font-size: 0.8rem;
+        text-align: center;
+        position: absolute;
+        top: 1rem;
+        left: 3rem;
+        @media only screen and (max-width:37.5em)
+        {
+            left: 1.5rem;
+        }
+    }
+    &__user
+    {
+        display: flex;
+        align-items: center;
+    }
+    &__user-photo
+    {
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        @media only screen and (max-width:37.5em)
+        {
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+
+    &__user-name
+    {
+        font-size: inherit;
+        font-family: inherit;
+        padding-left: 1rem;
+        @media only screen and (max-width:37.5em)
+        {
+            display: none;
+        }
+    }
+}
+
+
+
+
+/// SIDEBAR
+
+.sidebar
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media only screen and (max-width:56.25em)
+    {
+        flex: 0 1;
+    }
+    &__list
+    {
+        list-style: none;
+        margin-top: 3rem;
+
+        
+  @media only screen and (max-width:56.25em)  // 900px
+  {
+      display: flex;
+      justify-content: space-between;
+      margin: 0;
+  }
+  
+  @media only screen and (max-width:37.5em)
+  {
+      font-size: 0.6rem;
+  }
+
+    }
+
+    &__item
+    {
+         margin-bottom: 1rem;
+        position: relative;
+        @media only screen and (max-width:56.25em)  // 900px
+        {
+            flex:1;
+            margin-bottom: 0;
+        }
+       
+        &::before
+        {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 3px;
+            background-color: $MediumPink;
+            transition: transform 0.2s ease-in-out,
+                         width 0.2s 0.2s ease-in-out;
+                         background-color: 0.1s ease-in-out;
+            transform: scaleY(0);
+
+        }
+
+        &:hover::before,
+        &--active::before
+        {
+            transform: scaleY(1);
+            width: 100%;
+        }
+       
+    }
+
+    &__link:link,&__link:visited
+    {
+        color: $GreyLight1;
+        text-decoration: none;
+        text-transform: uppercase;
+        display: block;
+        padding: 1.5rem 2.5rem;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        z-index: 10;
+        position: relative;
+        transition: all 0.2s ease-in-out;
+        @media only screen and (max-width:68.75em) 
+        {
+            font-size: 0.7rem;
+            justify-content: center;
+        }
+
+        @media only screen and (max-width:37.5em)
+        {
+            font-size: 0.5rem;
+            flex-direction: column;
+            padding: 0.7rem;
+        } 
+
+        &:active 
+        {
+            background-color: $LightPink;
+        }
+       
+    }
+
+    &__icon 
+    {
+        height: 1.75rem;
+        width: 1.75rem;
+        margin-right: 1.1rem;
+        fill: $GreyLight1;
+
+        @media only screen and (max-width:37.5em)
+        {
+            margin-right: 0;
+            height: 1.25rem;
+            width: 1.25rem;
+        } 
+    }
+
+}
+
+.copyrights
+{
+    font-size: 1rem;
+    text-align: center;
+    padding: 2rem;
+    @media only screen and (max-width:56.25em)  // 900px
+    {
+display: none;    }
+}
+
+
+
+.Gallery
+{
+    display: flex;
+
+   
+    &__img
+    {
+        width: 100%;
+        display: block;
+        
+    }
+}
+
+/// Overview Content
+
+.Overview
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $Greylight4;
+@media only screen and (max-width:37.5em)
+{
+    flex-direction: column;
+}
+    &__heading
+    {
+        
+        &--title
+        {
+            font-size: 1.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 100;
+            color: #333;
+            padding: 1.5rem 2rem;
+            @media only screen and (max-width:37.5em)
+        {
+            font-size: 1.2rem;
+            padding: 1rem 1.25rem;
+        } 
+
+        }
+    }
+    &__stars
+    {
+        margin-right: auto; 
+        display: flex; 
+        
+        @media only screen and (max-width:37.5em)
+        {
+            margin-right: 0;
+            display: flex;
+            justify-content: center;
+        }
+       &--icon
+        {
+            width: 1.25rem;
+            height: 1.25rem;
+            fill: $LightPink;
+            @media only screen and (max-width:37.5em)
+            {
+            width: 1rem;
+            height: 1rem;
+            fill: #eb2f64;
+            }
+        }
+    }
+
+
+    &__Location
+    {
+        margin-right: 0.7rem;
+        display: flex;
+        @media only screen and (max-width:37.5em)
+        {
+            margin:1rem 0;
+        }
+        &--icon
+        {
+            width: 1.75rem;
+            height: 1.75rem;
+            fill: $LightPink;
+        }
+
+
+    }
+
+    &__rating 
+    {
+        display: flex;
+        flex-direction: column;
+        font-size: 1.2rem;
+        color: white;
+        background-color: $LightPink;
+        margin-left: 3rem;
+        align-self: stretch; 
+        padding: 0 1rem;
+        align-items: center;
+        justify-content: center;
+        @media only screen and (max-width:37.5em)
+        {
+            width: 100%;
+            margin-left: 0;
+        }
+       
+        &--average
+        {
+            font-size: 2.2rem;
+            font-weight: 300;
+
+        }
+        &--count
+        {
+            font-size: 0.8rem;
+            font-weight: 300;
+            text-transform: uppercase;
+
+        }
+    }
+}
+
+
+
+ 
+.btn 
+{
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &--location
+    {
+        color: $LightPink;
+       
+    }
+    &:hover
+    {
+        color: $Greydark1;
+        animation:  Pulse 1s infinite;
+
+    }
+   
+    &:focus
+    {
+        outline: none;
+    }
+
+    &-review
+    {
+        font-size: 1rem;
+        margin: auto;
+        display: flex;
+        color: $LightPink;
+        @media only screen and (max-width:37.5em)
+        {
+            margin: 1rem auto;
+        }
+    }
+}
+
+/// Description comnponenets
+.paragraph:not(:last-of-type)
+{
+    margin-bottom: 2rem;
+}
+
+
+.list
+{
+    padding: 2rem 1rem;
+    margin: 2rem 0;
+    list-style: none;
+    font-size: 0.9rem;
+    border-top: 1px solid $Greylight4;
+    border-bottom: 1px solid $Greylight4;
+    display: flex;
+    flex-wrap: wrap;
+
+    @media only screen and (max-width:68.75em) 
+    {
+        font-size: 0.7rem;
+    }
+    @media only screen and (max-width:37.5em)
+    {
+        font-size: 0.5rem;
+    }
+  
+
+    &__items
+    {
+        flex: 0 0 50%;
+        &:not(:last-of-type)
+        {
+            margin-bottom: 0.5rem;
+            padding-right: 0.5rem;
+        }
+
+        &::before
+        {
+        
+            content: "";
+            //background-image: url(../img/SVG/chevron-right.svg);
+            display: inline-block;
+            width: 1rem;
+            height: 1rem;
+            margin-right: 1rem;
+            background-color: $LightPink;
+
+            //must use the mask (clipping your icon from background)
+            // new browsers
+
+            background-image: url(../img/SVG/chevron-right.svg);
+            background-size: cover;
+            @supports (-webkit-mask-image: url()) or (mask-image: url())
+            {
+
+            background-color: $LightPink;
+            -webkit-mask-size: cover;
+            -webkit-mask-image: url(../img/SVG/chevron-right.svg);
+            mask-image: url(../img/SVG/chevron-right.svg);
+            mask-size: cover;
+            background-image: none;
+            }
+        }
+    }
+}
+
+
+
+@keyframes Pulse
+{
+    0%
+    {
+        transform: scale(1);
+        box-shadow: none;
+    }
+
+    50%
+    {
+        transform: scale(1.05);
+        box-shadow: 0 1rem 2rem rgba(0,0,0,0.5);
+    }
+
+    100%
+    {
+        
+        transform: scale(1);
+        box-shadow: none;
+    }
+}
+
+
+.CTA 
+{
+    padding: 3rem 0;
+    text-align: center;
+   
+
+    &__book-now
+    {
+    font-size: 1.5rem;
+    color: $Greydark1;
+    font-weight:300; 
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    @media only screen and (max-width:56.25em)  // 900px
+    {
+        font-size: 1.2rem;
+    }
+    }
+    .btn-booking
+    {
+        font-size: 1.5rem;
+        background-image: linear-gradient(to right , $LightPink  , $DarkPink);
+        color: white;
+        border: none;
+        border-radius: 10rem;
+        position: relative;
+        overflow: hidden;
+
+        @media only screen and (max-width:37.5em)
+        {
+            font-size: 0.8rem;
+        }
+      
+
+        &:focus 
+        {
+            outline:none; 
+            animation: Pulse 1s infinite;
+
+        }
+
+        &:hover 
+        {
+            background-image: linear-gradient(to left , $LightPink  , $DarkPink);
+
+        }
+        cursor: pointer;
+        &__visible 
+        {
+            display: inline-block;
+            padding: 1.5rem 5.5rem;
+            transition: all 0.2s ease-in-out;
+            height: 100%;
+            width: 100%;
+            @media only screen and (max-width:37.5em)
+            {
+                padding: 1.5rem 3.5rem;
+            }
+          
+        }
+        &__invisible
+        {
+            display: inline-block;
+            position: absolute;
+            padding: 1.5rem 0;
+            top: -100%;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            color: white;
+            transition: all 0.2s ease-in-out;
+            
+        }
+
+        &:hover .btn-booking__invisible
+        {
+            top: 0;
+
+        }
+
+        &:hover .btn-booking__visible
+        {
+            transform: translateY(100%);
+
+        }
+
+    
+
+    
+}
+
+
+   
+    }
